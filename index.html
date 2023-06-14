@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    outline: none;
+}
+body{
+    background-color: #96bcda;
+}
+.cntainer{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calculator{
+    background-color: #96bcda;
+    padding: 15px;
+    border-radius: 30px;
+    box-shadow: inset 5px 5px 12px rgb(190, 205, 232),
+                    inset:   5px 5px 12px rgba(139, 246, 232, 0.16);
+    display: grid;
+    grid-template-columns: repeat(4,68px);
+}
+.calculator input{
+    grid-column: span 4;
+    height: 70px;
+    width: 260px;
+    background-color: #96bcda;
+    box-shadow: inset -5px -5px 12px rgb(190, 205, 232),
+                inset 5px 5px 12px rgba(139, 246, 232, 0.16);
+    border: none;
+    border-radius: 30px;
+    font-size: 50px;
+    margin: auto;
+    color: rgb(220, 225, 217);
+    margin-top: 40px;
+    margin-bottom: 30px;
+    text-align: right;
+    padding: 20px;
+}
+button{
+    height: 48px;
+    width: 48px;
+    background-color: #96bcda;
+    box-shadow:  -5px -5px 12px rgb(190, 205, 232),
+                        5px 5px 12px rgba(139, 246, 232, 0.16);
+    border: none;
+    border-radius: 50%;
+    margin: 8px;
+    font-size: 16px;
+}
+.equal{
+    width: 115px;
+    border-radius: 40px;
+    background-color: #96bcda;
+    box-shadow:  -5px -5px 12px rgb(190, 205, 232),
+                        5px 5px 12px rgba(139, 246, 232, 0.16);
+}
+    </style>
+</head>
+<body>
+    <div class="cntainer">
+        <div class="calculator">
+            <input type="text" placeholder="0" id="result">
+            <button onclick="Clear()">C</button>
+            <button onclick="del()">DEL</button>
+            <button onclick="display('%')">%</button>
+            <button onclick="display('/')">/</button>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('*')">x</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('-')">-</button>
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="display('+')">+</button>
+            <button onclick="display('.')">.</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="Calculate()" class="equal">=</button>
+        </div>
+    </div>
+    <script>
+        let outputScreen = document.getElementById("result");
+
+function display(num){
+    outputScreen.value = outputScreen.value + num;
+}
+function Calculate(){
+        outputScreen.value = eval(outputScreen.value);
+}
+function Clear(){
+    outputScreen.value = "";
+}
+function del(){
+    outputScreen.value = outputScreen.value.slice(0,-1);
+}
+    </script>
+</body>
+</html>
